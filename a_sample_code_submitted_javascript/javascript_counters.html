@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script>
+
+function timedText() {
+    var x = document.getElementById('txt');
+    var t1 = setTimeout(function(){x.value = "9"},1000);
+    var t2 = setTimeout(function(){x.value = "8"},2000);
+    var t3 = setTimeout(function(){x.value = "7"},4000);
+}
+
+function startCountdown(){
+
+timer2 = document.getElementById('userInput2').value;
+timer = document.getElementById('userInput1').value;
+
+timer--;
+document.getElementById("myDemo").innerHTML = timer;
+document.getElementById('userInput1').value = timer;
+if(timer == timer2)
+{
+stopCountdown();
+}
+if(timer2 > timer)
+{
+alert("please correct your input");
+return;
+}
+
+var myVar = setTimeout(function(){startCountdown()},1000);
+}
+
+function stopCountdown(){
+    clearTimeout(myVar);
+}
+</script>
+</head>
+<body onload = "timedText()">
+<form>
+<input type="text" id="txt"/>
+<div>
+Above is the timer which starts at 9 for 1 sec on page load and then goes to 8 for 2 secs and then 7 and continues to remain on 7
+</div>
+
+<input type="number" id="userInput1"/>Enter the larger integer here<br>
+<input type="number" id="userInput2"/>Enter the smaller integer here<br>
+<button type="button" onclick = "startCountdown()">Press me to start decrementing</button><br>
+<button onclick="stopCountdown()">Stop the decrement or countdown</button>
+</form>
+<div id="myDemo"><font-size = 16px><b>
+    
+</div>
+<div id="myDemo3"><br>
+</div>
+</body>
+</html>
